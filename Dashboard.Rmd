@@ -12,17 +12,13 @@ library(tidyverse)
 library(p8105.datasets)
 library(rvest)
 library(plotly)
-```
 
-```{r}
-## NYC Restaurant Inspections
-```{r}
 data("rest_inspec")
 inspec_df =rest_inspec %>% 
   janitor:: clean_names() %>% 
   select (boro, building, cuisine_description, dba, street, score, grade) 
 ```
-```
+
 
 Column {data-width=650}
 -----------------------------------------------------------------------
@@ -37,7 +33,6 @@ inspec_df %>%
   mutate(boro = str_to_title(boro)) %>% 
   mutate (boro = fct_reorder(boro, count)) %>% 
   plot_ly(x = ~boro, y = ~count, color = ~boro, type = "bar", colors = "viridis")
-
 ```
 
 Column {data-width=350}
