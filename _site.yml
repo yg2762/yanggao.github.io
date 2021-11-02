@@ -1,0 +1,18 @@
+name: "Yay internet!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About me"
+      href: About.html
+    - text: "Dashboard"
+      href: Dashboard.html
+    - icon: fa-envelope fa-lg
+      href: mailto:yg2762@columbia.edu
+    - icon: fa-github fa-lg
+      href: http://github.com/yg2762/
+    - icon: fa-instagram-square fa-lg
+      href: https://www.instagram.com/gaoxiaohuaaa/
+output:
+  html_document:
+    theme: cosmo

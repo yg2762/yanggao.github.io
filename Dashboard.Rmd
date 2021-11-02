@@ -1,0 +1,67 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(rvest)
+library(plotly)
+```
+
+```{r}
+## NYC Restaurant Inspections
+```{r}
+data("rest_inspec")
+inspec_df =rest_inspec %>% 
+  janitor:: clean_names() %>% 
+  select (boro, building, cuisine_description, dba, street, score, grade) 
+```
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A Bar plot showing restaurant numbers among boros
+
+```{r}
+inspec_df %>% 
+  group_by (boro) %>% 
+  summarise(count = n()) %>% 
+  filter( boro != "Missing") %>% 
+  mutate(boro = str_to_title(boro)) %>% 
+  mutate (boro = fct_reorder(boro, count)) %>% 
+  plot_ly(x = ~boro, y = ~count, color = ~boro, type = "bar", colors = "viridis")
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B Boxplot demonstrating distribution of scores of Korean Restaurant in Manhattan among streets
+
+```{r}
+inspec_df %>%
+  drop_na(score) %>% 
+  filter(boro == "MANHATTAN", cuisine_description == "Korean") %>% 
+  mutate (street = fct_reorder(street, score)) %>% 
+  plot_ly(y = ~score, color = ~street, type = "box", colors = "viridis")
+```
+
+### Chart C Mean score of cuisines in Manhattan
+
+```{r}
+inspec_df %>% 
+  filter(boro == "MANHATTAN") %>% 
+  drop_na (score) %>% 
+  group_by(cuisine_description) %>% 
+  summarise (mean_score = mean(score))%>%
+  mutate(cuisine_description = fct_reorder(cuisine_description, mean_score)) %>% 
+  plot_ly(
+    x = ~cuisine_description, y = ~mean_score, type = "scatter")
+```
