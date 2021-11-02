@@ -23,8 +23,21 @@ inspec_df =rest_inspec %>%
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A Bar plot showing restaurant numbers among boros
+### Chart A:Boxplot demonstrating distribution of scores of Korean Restaurant in Manhattan among streets
 
+```{r}
+inspec_df %>%
+  drop_na(score) %>% 
+  filter(boro == "MANHATTAN", cuisine_description == "Korean") %>% 
+  mutate (street = fct_reorder(street, score)) %>% 
+  plot_ly(y = ~score, color = ~street, type = "box", colors = "viridis")
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B Bar plot showing restaurant numbers among boro
 ```{r}
 inspec_df %>% 
   group_by (boro) %>% 
@@ -33,19 +46,6 @@ inspec_df %>%
   mutate(boro = str_to_title(boro)) %>% 
   mutate (boro = fct_reorder(boro, count)) %>% 
   plot_ly(x = ~boro, y = ~count, color = ~boro, type = "bar", colors = "viridis")
-```
-
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart B Boxplot demonstrating distribution of scores of Korean Restaurant in Manhattan among streets
-
-```{r}
-inspec_df %>%
-  drop_na(score) %>% 
-  filter(boro == "MANHATTAN", cuisine_description == "Korean") %>% 
-  mutate (street = fct_reorder(street, score)) %>% 
-  plot_ly(y = ~score, color = ~street, type = "box", colors = "viridis")
 ```
 
 ### Chart C Mean score of cuisines in Manhattan
@@ -58,5 +58,5 @@ inspec_df %>%
   summarise (mean_score = mean(score))%>%
   mutate(cuisine_description = fct_reorder(cuisine_description, mean_score)) %>% 
   plot_ly(
-    x = ~cuisine_description, y = ~mean_score, type = "scatter")
+    x = ~cuisine_description, y = ~mean_score, type = "scatter", mode = "markers")
 ```
