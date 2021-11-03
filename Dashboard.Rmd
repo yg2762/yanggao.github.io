@@ -20,10 +20,10 @@ inspec_df =rest_inspec %>%
 ```
 
 
-Column {data-width=650}
+Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Chart A:Boxplot demonstrating distribution of scores of Korean Restaurant in Manhattan among streets
+### Chart A:Boxplot demonstrating distribution of scores of Korean Restaurant in Manhattan at different streets
 
 ```{r}
 inspec_df %>%
@@ -34,10 +34,10 @@ inspec_df %>%
 ```
 
 
-Column {data-width=350}
+Column {data-width=450}
 -----------------------------------------------------------------------
 
-### Chart B Bar plot showing restaurant numbers among boro
+### Chart B: Bar plot showing restaurant numbers in different boros
 ```{r}
 inspec_df %>% 
   group_by (boro) %>% 
@@ -48,7 +48,7 @@ inspec_df %>%
   plot_ly(x = ~boro, y = ~count, color = ~boro, type = "bar", colors = "viridis")
 ```
 
-### Chart C Mean score of cuisines in Manhattan
+### Chart C: Mean score of different type cuisines in Manhattan
 
 ```{r}
 inspec_df %>% 

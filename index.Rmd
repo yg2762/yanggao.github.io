@@ -10,7 +10,6 @@ output:
 
 I am a second year MPH student in Epidemiology at Columbia University. 
 
-# What I like
 
 I like hiking very much and [this](https://www.planetware.com/new-york/top-rated-things-to-do-in-cold-spring-us-ny-102.htm) is where I recently been.
 
