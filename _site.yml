@@ -11,7 +11,7 @@ navbar:
       href: mailto:<yg2762@columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/yg2762/
-
+      
 output:
   html_document:
     theme: cosmo
