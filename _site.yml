@@ -8,11 +8,10 @@ navbar:
     - text: "Dashboard"
       href: Dashboard.html
     - icon: fa-envelope fa-lg
-      href: mailto:yg2762@columbia.edu
+      href: mailto:<yg2762@columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/yg2762/
-    - icon: fa-phone fa-lg
-      href: tel:9176792745
+
 output:
   html_document:
     theme: cosmo
