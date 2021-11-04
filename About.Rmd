@@ -7,11 +7,13 @@ output:
 ---
 
 ## Education Background
-* MPH Epidemiology, Columbia University, 2020-
-* BS Biochemsitry, University of California, San Diego, 2016-2019
+
+* MPH Epidemiology, Columbia University, 2020-present
+* BS Biochemistry, University of California, San Diego, 2016-2019
 
 ## Working Experience
-* CTA Intern & PM Team Intern, IQVIA Pharmaceutical Technology (Shanghai) Co.,Ltd. Beijing Branch, 2021
+
+* CTA Intern & PM Team Intern, IQVIA Pharmaceutical Technology Co.,Ltd. Beijing Branch, 2021
 * Student Research Assistant, Cellular and Molecular Medicine UCSD, 2018-2019
 * Teaching Assistant, Deparment of Biological Science UCSD, 2019
 
